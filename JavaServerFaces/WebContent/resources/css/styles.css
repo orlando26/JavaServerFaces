@@ -1,0 +1,20 @@
+*{
+	margin:0px;
+	padding: 0px;
+}
+.boton{
+	background: green;
+	height: 50px;
+	width: 150px;
+}
+#header{
+	height: 10vh;
+}
+#content{
+	height: 80vh;
+}
+#footer{
+	height: 10vh;
+}
+#span{
+}

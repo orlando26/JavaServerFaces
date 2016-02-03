@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+	<composite:attribute name="placeholder"></composite:attribute>
+	<composite:attribute name="value"></composite:attribute>
+	<composite:attribute name="id"></composite:attribute>
+</composite:interface>
+
+<composite:implementation>
+	<h:form id="registerForm">
+		<script type="text/javascript">
+		$(document).ready(function(){
+			function getJSFElementById(elementId){
+				var formId = '#{cc.clientId}';
+				var array = formId.split(":");
+				var element = "#" + array[0] + "\\\:" + array[1] + '\\:registerForm\\:' + elementId;
+				return element;
+			}
+			$(getJSFElementById('#{cc.attrs.id}')).css('color', 'gray');
+			if ($(getJSFElementById('placeholder-value')).val() != ""){
+				$(getJSFElementById('#{cc.attrs.id}')).hide();	
+			}
+			$(getJSFElementById('placeholder-value')).keyup(function(){
+				if($(this).val() == ""){
+					$(getJSFElementById('#{cc.attrs.id}')).show();	
+				}else{
+					$(getJSFElementById('#{cc.attrs.id}')).hide();
+				}
+			});
+		});
+    </script>
+    	<h:outputText id="#{cc.attrs.id}" value="#{cc.attrs.placeholder}"></h:outputText>
+		<h:inputText id="placeholder-value" value="#{cc.attrs.value}"></h:inputText>
+	</h:form>
+</composite:implementation>
+</html>
