@@ -1,6 +1,6 @@
 package bean;
 
-
+import res.QuerySelector;
 
 public class Main extends Form{
 
@@ -10,6 +10,8 @@ public class Main extends Form{
 	private static final long serialVersionUID = 1L;
 	
 	private Integer num = 20;
+	
+	private String texto;
 	
 	
 	public void print(){
@@ -24,6 +26,16 @@ public class Main extends Form{
 
 	public void setNum(Integer num) {
 		this.num = num;
+	}
+
+
+	public String getTexto() {
+		return QuerySelector.selectQuery("querys", "findById");
+	}
+
+
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 
 

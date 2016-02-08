@@ -13,7 +13,7 @@
 	<ui:define name="content">
 		<c:set var="bean" value="#{Context.mainBean}"></c:set>
 		<h:form id="mainForm">
-			<cc:register id="place" placeholder="hint"></cc:register>
+			<h:outputLabel value="#{bean.texto}"></h:outputLabel>
 		</h:form>
 	</ui:define>
 </ui:composition>
