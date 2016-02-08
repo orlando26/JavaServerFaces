@@ -34,7 +34,7 @@ public class QuerySelector {
 				if(writeQuery){
 					query += line;
 				}
-			}
+			} 
 			return query;
 		}catch(NullPointerException | IOException e){
 			System.out.println(e.getMessage() + e.getCause().toString());
