@@ -8,13 +8,15 @@ import java.net.URL;
 public class QuerySelector {
 	/**
 	 * @param file
-	 * @param queryName
+	 * @param queryName 
 	 * @param query
 	 */
+	public static String url = "";
 	public static String selectQuery(String file, String queryName){
 		String line = null;
 		BufferedReader br = null;
 		URL path = QuerySelector.class.getResource("/querys/" + file + ".txt");
+		url = path.toString();
 		FileReader fr;
 		try{
 			fr = new FileReader(path.getPath());
@@ -22,7 +24,7 @@ public class QuerySelector {
 			String query = "";
 			boolean writeQuery = false;
 			while((line = br.readLine()) != null){
-				if (line.contains("}")){
+				if (line.contains("{")){
 					if(line.equals(queryName + "{")){
 						writeQuery = true;
 						continue;
@@ -37,14 +39,14 @@ public class QuerySelector {
 			} 
 			return query;
 		}catch(NullPointerException | IOException e){
-			System.out.println(e.getMessage() + e.getCause().toString());
-			return "";
+			System.out.println(e.getMessage());
+			return url;
 		}finally{
 			try{
 				br.close();
-			}catch(IOException | NullPointerException e){
+			}catch(IOException e){
 				System.out.println(e.getMessage());
 			}
-		}
+		
 	}
-}
+}}
