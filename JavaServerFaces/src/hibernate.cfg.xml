@@ -1,0 +1,49 @@
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+
+        <!-- Local database settings (e.g. SQL Express) -->
+        <!-- <property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=Chinook;</property>-->
+		<!-- <property name="connection.username">sa</property>-->
+        <!-- <property name="connection.password">Pass123!</property>-->
+
+        <!-- SQL Azure connection settings -->
+		<property name="connection.url">jdbc:sqlserver://iotserver1.database.windows.net:1433;database=Appdb;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;</property>
+		<property name="connection.username">orlando</property>
+		<property name="connection.password">16119321oO</property>
+
+        <!-- JDBC connection pool (use C3P0) -->
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.idle_test_period">60</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">create</property>
+
+        <mapping class="POJOs.Actividades" />
+    </session-factory>
+</hibernate-configuration>

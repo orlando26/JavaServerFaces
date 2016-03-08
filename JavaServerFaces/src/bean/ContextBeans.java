@@ -26,11 +26,5 @@ public class ContextBeans implements Serializable{
 	public void setMainBean(Main mainBean) {
 		this.mainBean = mainBean;
 	}
-	
-	public void printVal(){
-		System.out.println("dasdas");
-	}
-	
-	
 
 }
